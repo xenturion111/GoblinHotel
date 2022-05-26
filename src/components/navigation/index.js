@@ -5,13 +5,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../../screen/home';
 import OnBoard from '../../screen/onBoard';
 import Details from '../../screen/details';
-
+import {StyleSheet} from 'react-native';
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{headerShown: false}}>
+            <Stack.Navigator screenOptions={{headerShown: false}} >
                 <Stack.Screen name='OnBoard' component={OnBoard} />
                 <Stack.Screen name='HomeScreen' component={HomeScreen} />
                 <Stack.Screen name='Details' component={Details} />

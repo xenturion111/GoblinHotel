@@ -3,15 +3,21 @@ import {
   SafeAreaView,
   View,
 } from 'react-native';
-
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import reducers from './store/reducer/reducer';
 import Navigation from './src/components/navigation'
+import thunk from "redux-thunk";
 
+
+const store = createStore(reducers,  applyMiddleware(thunk));
 const App = () => {
   return (
-      <Navigation />
+    <Provider store={store}>
+        <Navigation />
+    </Provider>
   );
 };
-
 
 
 export default App;

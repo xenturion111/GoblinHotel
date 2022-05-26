@@ -1,10 +1,10 @@
 import React from 'react';
-import {SafeViewArea, StyleSheet, View} from 'react-native';
+import {SafeViewArea, StyleSheet, View, Text} from 'react-native';
 
 
 const Details = (navigation) => {
     return (
-        <View>
+        <View style={{flex: 1}}>
             <Text>
                 Hi!
             </Text>
