@@ -1,10 +1,11 @@
 const COLORS = {
-    white: 'white',
-    dark: '#000000',
-    primary: '#04555c',
-    secondary: '#e1e8e9',
+    white: '#FFF',
+    dark: '#000',
+    primary: '#52c0b4',
+    secondary: '#e0f4f1',
     light: '#f9f9f9',
-    grey: '#dddedd',
-    red: 'red',
+    grey: '#908e8c',
     orange: '#f5a623',
-}
+  };
+  
+  export default COLORS;

@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../../screen/home';
 import OnBoard from '../../screen/onBoard';
-import Details from '../../screen/details';
+import DetailScreen from '../../screen/details';
 import {StyleSheet} from 'react-native';
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +14,7 @@ const Navigation = () => {
             <Stack.Navigator screenOptions={{headerShown: false}} >
                 <Stack.Screen name='OnBoard' component={OnBoard} />
                 <Stack.Screen name='HomeScreen' component={HomeScreen} />
-                <Stack.Screen name='Details' component={Details} />
+                <Stack.Screen name='DetailScreen' component={DetailScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     )
