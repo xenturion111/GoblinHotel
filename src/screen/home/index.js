@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Dimensions,
   FlatList,
@@ -11,8 +11,9 @@ import {
   View,
   Image,
   Animated,
+  Button,
 } from 'react-native';
-
+import DatePicker from 'react-native-date-picker';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../components/colors/index';
 import hotels from '../../components/hotels';
@@ -24,6 +25,8 @@ const HomeScreen = ({navigation}) => {
   const [selectedCategoryIndex, setSelectedCategoryIndex] = React.useState(0);
   const [activeCardIndex, setActiveCardIndex] = React.useState(0);
   const scrollX = React.useRef(new Animated.Value(0)).current;
+  const [date, setDate] = useState(new Date());
+  const [open, setOpen] = useState(false);
 
   const CategoryList = ({navigation}) => {
     return (
@@ -159,12 +162,13 @@ const HomeScreen = ({navigation}) => {
             <Text style={{fontSize: 30, fontWeight: 'bold'}}>in </Text>
             <Text
               style={{fontSize: 30, fontWeight: 'bold', color: COLORS.primary}}>
-              Paris
+              Around The World
             </Text>
           </View>
         </View>
         <Icon name="person-outline" size={38} color={COLORS.grey} />
       </View>
+
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={style.searchInputContainer}>
           <Icon name="search" size={30} style={{marginLeft: 20}} />
@@ -173,10 +177,37 @@ const HomeScreen = ({navigation}) => {
             style={{fontSize: 20, paddingLeft: 10}}
           />
         </View>
+        <View>
+          <Button title="Check In" onPress={() => setOpen(true)} />
+          <DatePicker
+            modal
+            open={open}
+            date={date}
+            mode="date"
+            onConfirm={date => {
+              setOpen(false);
+              setDate(date);
+            }}
+            onCancel={() => setOpen(true)}
+          />
+          <Button title="Check Out" onPress={() => setOpen(true)} />
+          <DatePicker
+            modal
+            open={open}
+            date={date}
+            mode="date"
+            onConfirm={date => {
+              setOpen(false);
+              setDate(date);
+            }}
+            onCancel={() => setOpen(true)}
+          />
+        </View>
+
         <CategoryList />
         <View>
           <Animated.FlatList
-            onMomentumScrollEnd={(e) => {
+            onMomentumScrollEnd={e => {
               setActiveCardIndex(
                 Math.round(e.nativeEvent.contentOffset.x / cardWidth),
               );
